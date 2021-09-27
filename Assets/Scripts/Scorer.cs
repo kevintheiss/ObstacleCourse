@@ -6,9 +6,12 @@ public class Scorer : MonoBehaviour
 {
     int numHits = 0;
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision other)
     {
-        numHits++;
-        Debug.Log("You've hit the wall this many times: " + numHits);       
+        if (other.gameObject.tag != "Hit")
+        {
+            numHits++;
+            Debug.Log("You've hit the wall this many times: " + numHits);
+        }  
     }
 }
